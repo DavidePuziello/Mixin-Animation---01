@@ -1,0 +1,27 @@
+@mixin bounce ($start, $distance) {
+    @keyframes bounce {
+        0% {top: $start;}
+        40%{top: $distance;}
+        60%{top: $distance / 2;}
+        100%{top: $start;}
+    }
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    place-content: center;
+}
+
+div {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 50%;
+    position: relative;
+}
+
+.bounce {
+    animation: bounce 1s infinite;
+    @include bounce(0px, 30px)
+}
